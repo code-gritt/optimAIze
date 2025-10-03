@@ -1,6 +1,6 @@
-'use client';
-import Link from 'next/link';
-import { styled } from 'styled-components';
+"use client";
+import Link from "next/link";
+import { styled } from "styled-components";
 
 export const Wrapper = styled.section`
   padding: 1rem 0;
@@ -40,8 +40,8 @@ export const BurgerMenu = styled.div`
     div {
       position: absolute;
       background: var(--emerald);
-      width: '250px';
-      height: '300px';
+      width: "250px";
+      height: "300px";
       border-radius: 25px;
       z-index: 1;
       top: 50px;

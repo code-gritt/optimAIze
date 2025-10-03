@@ -1,13 +1,13 @@
 // For desktop
-export const phrases = ['Building the future of', 'banking.'];
+export const phrases = ["AI-powered", "code review and debugging."];
 export const paragraphPhrases = [
-  "Experience the future of banking with RAFT. We're here to",
-  'empower your financial journey.',
+  "Optimize, debug, and understand your codebase with OptimAIze.",
+  "Leverage AI to detect bugs, suggest improvements, and collaborate seamlessly.",
 ];
 
 // For mobile
-export const mobilePhrases = ['Building the future', 'of banking'];
+export const mobilePhrases = ["AI-powered", "code review & debugging"];
 export const mobileParagraphPhrases = [
-  "Experience the future of banking with RAFT. We're",
-  'here to empower your financial journey.',
+  "Optimize, debug, and understand your codebase with OptimAIze.",
+  "Leverage AI to detect bugs, suggest improvements, and collaborate.",
 ];

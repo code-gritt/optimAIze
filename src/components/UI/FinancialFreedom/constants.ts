@@ -1,56 +1,55 @@
-
-import ic_banknotes from '../../../../public/svgs/ic_banknotes.svg';
-import ic_circle_stack from '../../../../public/svgs/ic_circle_stack.svg';
-import ic_arrows_left_right from '../../../../public/svgs/ic_arrows_right_left.svg';
+import ic_banknotes from "../../../../public/svgs/ic_banknotes.svg";
+import ic_circle_stack from "../../../../public/svgs/ic_circle_stack.svg";
+import ic_arrows_left_right from "../../../../public/svgs/ic_arrows_right_left.svg";
 
 // For desktop
-export const desktopHeaderPhrase = ['Your Financial Freedom,', 'Your Way'];
+export const desktopHeaderPhrase = ["Optimize Your Code,", "Your Way"];
 export const desktopParagraphPhrase = [
-  'We believe that managing your finances should be effortless and cost-effective.',
-  "That's why we offer you the freedom you deserve.",
+  "We believe that reviewing and improving code should be effortless and efficient.",
+  "That's why OptimAIze helps you detect bugs and optimize your code seamlessly.",
 ];
 export const desktopBriefNotePhrase = [
-  'Smart investments,',
-  'secure payments, and',
-  'expert guidance, all in',
-  'one place.',
+  "AI-powered analysis,",
+  "collaborative reviews, and",
+  "context-aware suggestions, all",
+  "in one platform.",
 ];
 
 // For mobile
-export const mobileHeaderPhrase = ['Your Financial', 'Freedom, Your Way'];
+export const mobileHeaderPhrase = ["Optimize Your Code,", "Your Way"];
 export const mobileParagraphPhrase = [
-  'We believe that managing your finances should be',
-  "effortless and cost-effective. That's why we offer",
-  ' you the freedom you deserve.',
+  "We believe that reviewing and improving code should be",
+  "effortless and efficient. OptimAIze helps you detect bugs",
+  "and optimize your code seamlessly.",
 ];
 
 export const mobileBriefNotePhrase = [
-  'Smart',
-  ' investments,',
-  'secure',
-  ' payments,',
-  'and expert',
-  'guidance, all',
-  'in one place.',
+  "AI-powered",
+  " analysis,",
+  "collaborative",
+  " reviews,",
+  "and context-aware",
+  " suggestions, all",
+  "in one platform.",
 ];
 
 export const edges = [
   {
-    point: 'No minimum balance fees',
+    point: "AI-powered Bug Detection",
     details:
-      'Say goodbye to minimum balance fees. Your account, your balance—no hidden charges',
+      "Automatically detect bugs and vulnerabilities in your code, saving time and improving quality.",
     icon: ic_banknotes,
   },
   {
-    point: 'No monthly fees',
+    point: "Collaborative Code Reviews",
     details:
-      'Bank with us without worrying about monthly fees. Keep more of your money where it belongs—in your account',
+      "Work with your team in real-time, providing feedback and insights directly within OptimAIze.",
     icon: ic_circle_stack,
   },
   {
-    point: 'No bank transfer fees',
+    point: "Context-Aware Suggestions",
     details:
-      'Seamlessly transfer funds without the extra cost. Send and receive money with zero bank transfer fees.',
+      "Receive intelligent optimization and best-practice suggestions tailored to your codebase.",
     icon: ic_arrows_left_right,
   },
 ];

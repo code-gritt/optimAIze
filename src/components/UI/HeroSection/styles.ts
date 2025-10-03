@@ -1,6 +1,6 @@
-'use client';
-import { styled } from 'styled-components';
-import hero_background from '../../../../public/images/grid_background.png';
+"use client";
+import { styled } from "styled-components";
+import hero_background from "../../../../public/images/grid_background.png";
 
 export const Wrapper = styled.section`
   margin-top: 6.25rem;

@@ -1,47 +1,48 @@
-import seamless_payments from '../../../../public/images/seamless_payments.png';
-import smart_investing from '../../../../public/images/smart_investing.png';
-import wealth_management from '../../../../public/images/wealth_management.png';
-import financial_planning from '../../../../public/images/financial_planning.png';
+import seamless_payments from "../../../../public/images/seamless_payments.png";
+import smart_investing from "../../../../public/images/smart_investing.png";
+import wealth_management from "../../../../public/images/wealth_management.png";
+import financial_planning from "../../../../public/images/financial_planning.png";
+
 // For desktop
 export const desktopHeaderPhrases = [
-  'Elevate Your Financial',
-  'Journey with RAFT',
+  "Elevate Your Development",
+  "Workflow with OptimAIze",
 ];
 export const desktopParagraphPhrase = [
-  'RAFT offers a world of financial possibilities. From investments to payments,',
-  "we've got you covered. Join us and unlock your potential today.",
+  "OptimAIze empowers developers to write better code, faster. From AI-driven analysis",
+  "to collaborative reviews, enhance your workflow and code quality today.",
 ];
 
 // For mobile
 export const mobileParagraphPhrase = [
-  'RAFT offers a world of financial possibilities. From',
-  "investments to payments, we've got you covered.",
-  'Join us and unlock your potential today.',
+  "OptimAIze empowers developers to write better code, faster.",
+  "From AI-driven analysis to collaborative reviews,",
+  "enhance your workflow and code quality today.",
 ];
 
 export const offers = [
   {
     illustration: seamless_payments,
-    title: 'Seamless Payments',
+    title: "Automated Code Analysis",
     details:
-      'Enjoy secure, seamless transactions that make managing your money a breeze.',
+      "Detect bugs and potential issues automatically, saving time and improving code quality.",
   },
   {
     illustration: smart_investing,
-    title: 'Smart Investing',
+    title: "AI-Powered Suggestions",
     details:
-      'Grow your wealth confidently with our personalized investment solutions, tailored to your financial goals.',
+      "Receive actionable suggestions and optimizations tailored to your codebase and best practices.",
   },
   {
     illustration: wealth_management,
-    title: 'Wealth Management',
+    title: "Collaborative Reviews",
     details:
-      'Make informed decisions for your financial future with our wealth management expertise.',
+      "Work with your team in real-time to review, comment, and improve code efficiently.",
   },
   {
     illustration: financial_planning,
-    title: 'Financial Planning',
+    title: "Performance Insights",
     details:
-      'Achieve your financial dreams with our comprehensive financial planning services, guiding you toward a secure future.',
+      "Gain deep insights into your code’s performance and maintainability to scale projects confidently.",
   },
 ];

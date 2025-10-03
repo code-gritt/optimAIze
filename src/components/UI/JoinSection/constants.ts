@@ -1,7 +1,7 @@
-import { StaticImageData } from 'next/image';
-import robert_fox from '../../../../public/images/robert_fox.png';
-import cameron_williamson from '../../../../public/images/cameron_williamson.png';
-import esther_howard from '../../../../public/images/esther_howard.png';
+import { StaticImageData } from "next/image";
+import robert_fox from "../../../../public/images/robert_fox.png";
+import cameron_williamson from "../../../../public/images/cameron_williamson.png";
+import esther_howard from "../../../../public/images/esther_howard.png";
 
 export type Props = {
   testimony: string;
@@ -12,34 +12,34 @@ export type Props = {
 export const testimonials = [
   {
     testimony:
-      "RAFT has transformed my approach to finance. Their smart investing options have helped me grow my wealth, and their user-friendly platform makes managing my money a breeze. I've never felt more confident about my financial future.",
-    person: 'Robert Fox',
+      "OptimAIze has transformed how I review code. The AI-powered suggestions helped me detect bugs faster and optimize performance, making my workflow smoother and more efficient.",
+    person: "Robert Fox",
     avatar: robert_fox,
   },
   {
     testimony:
-      "I can't express how grateful I am to RAFT. Their wealth management services have been a game-changer for my family's financial security. The expert guidance and personalized strategies have given us peace of mind, knowing that our future is in capable hands.",
-    person: 'Cameron Williamson',
+      "I can't believe how much time OptimAIze has saved my team. Real-time collaborative reviews and contextual insights have improved our code quality and confidence in deployments.",
+    person: "Cameron Williamson",
     avatar: cameron_williamson,
   },
   {
     testimony:
-      "RAFT's financial planning services have been a lifeline for me. I always struggled with managing my money, but their team crafted a tailored plan that addressed my goals and concerns. It's been a game-changer in achieving my financial dreams",
-    person: 'Esther Howard',
+      "OptimAIze’s automated analysis caught issues I would have missed manually. The detailed explanations and actionable suggestions have made debugging a breeze.",
+    person: "Esther Howard",
     avatar: esther_howard,
   },
   {
     testimony:
-      "I can't express how grateful I am to RAFT. Their wealth management services have been a game-changer for my family's financial security. The expert guidance and personalized strategies have given us peace of mind, knowing that our future is in capable hands.",
-    person: 'Cameron Williamson',
+      "Real-time code collaboration in OptimAIze has streamlined our review sessions. We can discuss, annotate, and improve code together seamlessly.",
+    person: "Cameron Williamson",
     avatar: cameron_williamson,
   },
   {
     testimony:
-      "RAFT has transformed my approach to finance. Their smart investing options have helped me grow my wealth, and their user-friendly platform makes managing my money a breeze. I've never felt more confident about my financial future.",
-    person: 'Robert Fox',
+      "With OptimAIze, understanding complex codebases is easier than ever. AI-powered explanations and optimizations give me confidence to maintain and scale projects effectively.",
+    person: "Robert Fox",
     avatar: robert_fox,
   },
 ];
 
-export const desktopHeaderPhrase = ['Join over 3 million', 'members'];
+export const desktopHeaderPhrase = ["Join thousands of", "developers"];

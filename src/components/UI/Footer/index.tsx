@@ -1,23 +1,22 @@
-import Image from 'next/image';
-import raft_footer_logo from '../../../../public/svgs/raft_footer_logo.svg';
-import qr_code from '../../../../public/svgs/qr_code.svg';
-import ic_google_playstore from '../../../../public/svgs/ic_google_playstore.svg';
-import ic_baseline_apple from '../../../../public/svgs/ic_baseline_apple.svg';
-import ic_chevron_down from '../../../../public/svgs/ic_chevron_down.svg';
-import ic_copyright from '../../../../public/svgs/ic_copyright.svg';
+import Image from "next/image";
+import qr_code from "../../../../public/svgs/qr_code.svg";
+import ic_google_playstore from "../../../../public/svgs/ic_google_playstore.svg";
+import ic_baseline_apple from "../../../../public/svgs/ic_baseline_apple.svg";
+import ic_chevron_down from "../../../../public/svgs/ic_chevron_down.svg";
+import ic_copyright from "../../../../public/svgs/ic_copyright.svg";
 
 const linksArr = [
   {
-    title: 'About us',
-    links: ['Our Company', 'Careers', 'Press kits'],
+    title: "Company",
+    links: ["About OptimAIze", "Careers", "Press"],
   },
   {
-    title: 'Legal',
-    links: ['Terms of use', 'Privacy policy', 'About us'],
+    title: "Legal",
+    links: ["Terms of Use", "Privacy Policy", "Security"],
   },
   {
-    title: 'About us',
-    links: ['Contact us', 'FAQ'],
+    title: "Support",
+    links: ["Contact Us", "FAQ", "Documentation"],
   },
 ];
 
@@ -37,15 +36,46 @@ import {
   FooterBottom,
   Translator,
   CopyRight,
-} from './styles';
+} from "./styles";
 
 const Footer = () => {
   return (
     <Wrapper>
       <Inner>
-        <FooterLogo>
-          <Image src={raft_footer_logo} alt="raft_footer_logo" />
+        {/* Footer Logo Row */}
+        <FooterLogo
+          style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+        >
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Outer hexagon */}
+            <polygon
+              points="20,2 36,10 36,30 20,38 4,30 4,10"
+              stroke="#2B892E"
+              strokeWidth="3"
+              fill="none"
+            />
+            {/* Inner circle for "O" effect */}
+            <circle cx="20" cy="20" r="8" fill="#2B892E" />
+          </svg>
+
+          <span
+            style={{
+              fontWeight: 700,
+              fontSize: "1.5rem",
+              color: "#FFFFFF",
+              fontFamily: "'Inter', sans-serif",
+            }}
+          >
+            OptimAIze
+          </span>
         </FooterLogo>
+
         <FooterMainContent>
           <FooterMiddle>
             <QRContainer>
@@ -53,7 +83,9 @@ const Footer = () => {
                 <Image src={qr_code} alt="qr_code" />
               </QRImageCtn>
               <TextCtn>
-                <p>Scan to download App on the Playstore and Appstore.</p>
+                <p>
+                  Scan to download the OptimAIze App on Playstore and Appstore.
+                </p>
                 <IconCtn>
                   <Image src={ic_google_playstore} alt="playstore icon" />
                   <Image src={ic_baseline_apple} alt="apple icon" />
@@ -80,7 +112,7 @@ const Footer = () => {
             </Translator>
             <CopyRight>
               <Image src={ic_copyright} alt="copyright svg" />
-              Raft Corp, LLC.
+              OptimAIze Corp, LLC.
             </CopyRight>
           </FooterBottom>
         </FooterMainContent>

@@ -1,10 +1,10 @@
-import Layout from '@/components/Layout';
-import './globals.css';
-import type { Metadata } from 'next';
+import Layout from "@/components/Layout";
+import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Raft',
-  description: 'Building the future of banking',
+  title: "OptimAIze",
+  description: "AI-powered code review and debugging platform for developers",
 };
 
 export default function RootLayout({
