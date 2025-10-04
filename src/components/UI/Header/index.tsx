@@ -15,9 +15,17 @@ import AnimatedLink from "@/components/Common/AnimatedLink";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { links, menu } from "./constants";
+import { useAuthStore } from "@/lib/store";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, token, clearAuth } = useAuthStore();
+  const handleLogout = () => {
+    clearAuth();
+    // Optional: Refresh or redirect to login
+    window.location.href = "/login";
+  };
+
   return (
     <Wrapper>
       <Inner>
@@ -72,8 +80,31 @@ const Header = () => {
         </Nav>
 
         <CallToActions className={isOpen ? "active" : ""}>
-          <AnimatedLink title="Login" />
-          <GetStartedButton padding="0.5rem 0.75rem" />
+          {user && token ? (
+            <>
+              <button
+                onClick={() => (window.location.href = "/dashboard")}
+                className="rounded-md bg-[#2B892E] px-4 py-2 text-white hover:bg-[#225f22] focus:outline-none focus:ring-2 focus:ring-[#2B892E]"
+              >
+                Dashboard
+              </button>
+              <button
+                onClick={handleLogout}
+                className="ml-2 rounded-md bg-gray-600 px-4 py-2 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+              >
+                Logout
+              </button>
+              <span className="credits ml-2">Credits: {user.credits}</span>
+              <span className="avatar ml-2">
+                {user.email.charAt(0).toUpperCase()}
+              </span>
+            </>
+          ) : (
+            <>
+              <AnimatedLink title="Login" />
+              <GetStartedButton padding="0.5rem 0.75rem" />
+            </>
+          )}
         </CallToActions>
       </Inner>
     </Wrapper>

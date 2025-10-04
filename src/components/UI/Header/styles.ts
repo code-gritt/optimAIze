@@ -1,5 +1,3 @@
-"use client";
-import Link from "next/link";
 import { styled } from "styled-components";
 
 export const Wrapper = styled.section`
@@ -40,8 +38,8 @@ export const BurgerMenu = styled.div`
     div {
       position: absolute;
       background: var(--emerald);
-      width: "250px";
-      height: "300px";
+      width: 250px;
+      height: 300px;
       border-radius: 25px;
       z-index: 1;
       top: 50px;
@@ -88,25 +86,33 @@ export const Nav = styled.div`
   }
 `;
 
-export const AbsoluteLinks = styled(Link)`
-  position: absolute;
-  top: 40px;
-  color: var(--link-color);
-  font-size: 1rem;
-  font-weight: 400;
-`;
-
 export const CallToActions = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
 
-  div {
+  button {
     span {
       color: var(--white);
       font-size: 1rem;
       font-weight: 600;
     }
+  }
+
+  .credits {
+    color: var(--white);
+    font-size: 1rem;
+  }
+
+  .avatar {
+    width: 2rem;
+    height: 2rem;
+    background: #2b892e;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
   }
 
   @media (max-width: 768px) {
@@ -124,4 +130,12 @@ export const CallToActions = styled.div`
       visibility: visible;
     }
   }
+`;
+
+export const AbsoluteLinks = styled.a`
+  position: absolute;
+  top: 40px;
+  color: var(--link-color);
+  font-size: 1rem;
+  font-weight: 400;
 `;
