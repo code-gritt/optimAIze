@@ -1,6 +1,5 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
-from passlib.context import CryptContext
 from jose import jwt, JWTError
 from datetime import datetime, timedelta
 import strawberry
@@ -11,21 +10,12 @@ from enum import Enum
 from core.models.user import User, UserRole
 from core.dependencies.db import get_db
 
-# --- Config ---
+# ----------------- Config -----------------
 SECRET_KEY = "cbc939eedd96ed9e6b5e0c60712dc29cf9d4eacbde45d0c0b0066e87b51bde7d"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-
-# --- Utility Functions ---
-def verify_password(plain_password: str, hashed_password: str) -> bool:
-    return pwd_context.verify(plain_password, hashed_password)
-
-
-def get_password_hash(password: str) -> str:
-    return pwd_context.hash(password)
+# ----------------- Utility Functions -----------------
 
 
 def create_access_token(data: dict) -> str:
@@ -39,14 +29,14 @@ def get_user_by_email(db: Session, email: str) -> Optional[User]:
     return db.query(User).filter(User.email == email).first()
 
 
-# --- Strawberry Enum ---
+# ----------------- Strawberry Enum -----------------
 @strawberry.enum
 class UserRoleEnum(Enum):
     USER = UserRole.USER.value
     ADMIN = UserRole.ADMIN.value
 
 
-# --- Strawberry Types ---
+# ----------------- Strawberry Types -----------------
 @strawberry.type
 class UserType:
     id: int
@@ -61,42 +51,55 @@ class AuthPayload:
     user: UserType
 
 
-# --- Mutations ---
+# ----------------- Mutations -----------------
 @strawberry.type
 class Mutation:
     @strawberry.mutation
     def register(self, email: str, password: str, info: Info) -> UserType:
         db: Session = info.context["db"]
+
         if get_user_by_email(db, email):
             raise HTTPException(
                 status_code=400, detail="Email already registered")
 
-        hashed_password = get_password_hash(password)
-        user = User(email=email, hashed_password=hashed_password,
+        # Store password as plain text (not recommended for production)
+        user = User(email=email, hashed_password=password,
                     role=UserRole.USER, credits=100)
         db.add(user)
         db.commit()
         db.refresh(user)
 
-        return UserType(id=user.id, email=user.email, role=UserRoleEnum(user.role.value), credits=user.credits)
+        return UserType(
+            id=user.id,
+            email=user.email,
+            role=UserRoleEnum(user.role.value),
+            credits=user.credits,
+        )
 
     @strawberry.mutation
     def login(self, email: str, password: str, info: Info) -> AuthPayload:
         db: Session = info.context["db"]
         user = get_user_by_email(db, email)
-        if not user or not verify_password(password, user.hashed_password):
+
+        # Plain text comparison
+        if not user or user.hashed_password != password:
             raise HTTPException(status_code=401, detail="Invalid credentials")
 
         token = create_access_token(
             data={"sub": user.email, "role": user.role.value})
+
         return AuthPayload(
             token=token,
-            user=UserType(id=user.id, email=user.email, role=UserRoleEnum(
-                user.role.value), credits=user.credits),
+            user=UserType(
+                id=user.id,
+                email=user.email,
+                role=UserRoleEnum(user.role.value),
+                credits=user.credits,
+            ),
         )
 
 
-# --- Queries ---
+# ----------------- Queries -----------------
 @strawberry.type
 class Query:
     @strawberry.field
@@ -104,17 +107,28 @@ class Query:
         db: Session = info.context["db"]
         request = info.context["request"]
         auth_header = request.headers.get("Authorization")
+
         if not auth_header or not auth_header.startswith("Bearer "):
             raise HTTPException(
-                status_code=401, detail="Authorization header missing or invalid")
+                status_code=401, detail="Authorization header missing or invalid"
+            )
 
         token = auth_header.split(" ")[1]
+
         try:
             payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
             email = payload.get("sub")
             user = get_user_by_email(db, email)
+
             if not user:
                 raise HTTPException(status_code=401, detail="User not found")
-            return UserType(id=user.id, email=user.email, role=UserRoleEnum(user.role.value), credits=user.credits)
+
+            return UserType(
+                id=user.id,
+                email=user.email,
+                role=UserRoleEnum(user.role.value),
+                credits=user.credits,
+            )
+
         except JWTError:
             raise HTTPException(status_code=401, detail="Invalid token")
